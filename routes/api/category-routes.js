@@ -10,8 +10,13 @@ router.get('/', (req, res) => {
     include: [Product],
   })
     .then((dbCategoryData) => res(dbCategoryData))
-    .catch((err) => res.status(500).json(err));
-});
+    .catch((err) => {
+      console.log("er= ",err);
+      res.status(500).json(err);
+    }
+    );
+    } 
+);
 
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
