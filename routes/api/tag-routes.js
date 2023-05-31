@@ -35,12 +35,17 @@ router.get('/:id', (req, res) => {
       }
     ],
   })
-    .then((dbCategoryData) => res.json(dbCategoryData))
+    .then((dbTagData) => res.json(dbTagData))
     .catch((err) => res.status(400).json(err));
 });
 
 router.post('/', (req, res) => {
   // create a new tag
+  Tag.create(req.body)
+  .then((dbTagData) => res.status(200).json(dbTagData))
+  .catch((error) => {
+    console.log("err= ",error);
+    res.status(400).json(error)});
 });
 
 router.put('/:id', (req, res) => {
