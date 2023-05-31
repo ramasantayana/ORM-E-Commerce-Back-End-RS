@@ -14,9 +14,9 @@ router.get('/', (req, res) => {
       through: ProductTag,
     }],
   })
-    .then((dbProductData) => res(dbProductData))
+    .then((dbProductData) => res.json(dbProductData))
     .catch((err) => res.status(500).json(err));
-});
+});ç
 
 // get one product
 router.get('/:id', (req, res) => {
